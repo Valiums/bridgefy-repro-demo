@@ -207,6 +207,10 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+    
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.4.1"))
+    implementation("com.squareup.okhttp3:okhttp")              // No version!
+    implementation("com.squareup.okhttp3:okhttp-urlconnection") // No version!
 }
 
 // Run this once to be able to run the application with BUCK
@@ -226,5 +230,8 @@ repositories {
   }
 }
 
+configurations {
+    all*.exclude group: 'commons-io', module: 'commons-io'
+}
 
 
